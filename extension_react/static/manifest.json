@@ -1,0 +1,50 @@
+{
+    "manifest_version": 3,
+    "name": "Pixel Diff",
+    "description": "Visualize the diff between this website's pixel source code and its base form",
+    "version": "1.0.0",
+    "action": {
+        "default_popup": "index.html",
+        "default_icon": {
+            "16": "./icon16.png",
+            "32": "./icon32.png",
+            "48": "./icon48.png",
+            "128": "./icon128.png"
+        }
+    },
+    "icons": {
+        "16": "./icon16.png",
+        "32": "./icon32.png",
+        "48": "./icon48.png",
+        "128": "./icon128.png"
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "contentScript.js"
+            ]
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "base_code.txt", "comparison.css", "download.js"
+            ],
+            "matches": [
+                "<all_urls>"
+            ]
+        }
+    ],
+    "host_permissions": [
+        "<all_urls>"
+    ],
+    "content_security_policy": {
+        "extension_pages": "default-src 'self'; connect-src https://* data: blob: filesystem:;"
+    }
+}
