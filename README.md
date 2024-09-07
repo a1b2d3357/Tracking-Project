@@ -11,7 +11,7 @@
      <ol>
       <li>Download the extension_react folder locally</li>
       <li>In Google Chrome, open 'Manage Extensions' and turn on the Developer Mode from top-right</li>
-      <li>Click load-unpacked from top left</li>
+      <li>Click load-unpacked on top left</li>
       <li>Select extension_react/dist/manifest.json</li>
     </ol>
     </p>
