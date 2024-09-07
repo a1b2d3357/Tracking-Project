@@ -1,0 +1,117 @@
+/* General styles */
+body {
+    font-family: 'Roboto', sans-serif; /* Stylish font */
+    background-color: #f0f2f5; /* Light background color for the page */
+    margin: 0;
+    padding: 0;
+    color: #333;
+    overflow: hidden; /* Prevent scrollbars */
+}
+
+/* Container and layout */
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Full viewport height */
+    background-color: #ffffff; /* White background for the container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for container */
+}
+
+/* Title styling */
+h1, h2 {
+    color: #2c3e50; /* Dark blue-gray for titles */
+    font-weight: 600;
+}
+
+h1 {
+    text-align: center;
+    margin: 0; /* Remove margin for better alignment */
+    background: #3498db; /* Blue background for the main title */
+    color: #ffffff; /* White text for contrast */
+    padding: 10px 0;
+}
+
+h2 {
+    background: #2ecc71; /* Green background for section titles */
+    color: #ffffff; /* White text for contrast */
+    padding: 5px 0;
+    border-radius: 5px;
+    text-align: center;
+    margin: 0; /* Remove margin for better alignment */
+}
+
+/* Code columns and diff-container */
+.diff-container {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    gap: 20px;
+    padding: 20px;
+    overflow: auto; /* Allow scrolling if necessary */
+}
+
+.code-column {
+    flex: 1;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    background: #f9f9f9; /* Light gray background for code columns */
+    box-sizing: border-box;
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+#diff-column {
+    flex: 2;
+}
+
+/* Preformatted text */
+pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    padding: 15px;
+    background: #f8f9fa; /* Slightly off-white background for code blocks */
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-family: 'Courier New', Courier, monospace; /* Monospaced font for code */
+    color: #333;
+}
+
+/* Color-coded differences */
+.added {
+    background-color: #d4f6d4; /* Light green for added text */
+}
+
+.removed {
+    background-color: #fdd; /* Light red for removed text */
+}
+
+.unchanged {
+    background-color: #ffffff; /* White background for unchanged text */
+}
+
+/* Button and select styling */
+button {
+    margin: 10px 0;
+    padding: 10px 20px;
+    background-color: #007bff; /* Blue background for button */
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+select {
+    margin: 10px 0;
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: #ffffff;
+    color: #333;
+}

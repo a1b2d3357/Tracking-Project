@@ -1,0 +1,93 @@
+/* General styles */
+body {
+    font-family: 'Roboto', sans-serif; /* Stylish font */
+    background-color: #f0f2f5; /* Light background color for the page */
+    margin: 0;
+    padding: 0;
+    color: #333;
+    overflow: hidden; /* Prevent scrollbars */
+}
+
+/* Main container */
+.app-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw; /* Adjust width as needed */
+    height: 150%;
+    background-color: #ffffff; /* White background for main container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for container */
+    padding: 30px;
+    border-radius: 15px;
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+/* Title styling */
+h1 {
+    color: #ffffff; /* White text for contrast */
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, #3498db, #2ecc71); /* Gradient background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for title */
+}
+
+/* Controls styling */
+.controls {
+    margin-bottom: 30px;
+    text-align: center;
+    width: 100%;
+}
+
+/* Label styling */
+label {
+    font-size: 18px;
+    color: #2c3e50; /* Dark blue-gray for label */
+}
+
+/* Select dropdown styling */
+select {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: #ffffff;
+    color: #333;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow for dropdown */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    width: 100%; /* Full width */
+}
+
+/* Select dropdown hover effect */
+select:hover {
+    background-color: #f1f1f1; /* Slightly darker background on hover */
+    border-color: #bbb; /* Darker border on hover */
+}
+
+/* Button styling */
+.compare-button {
+    padding: 12px 25px;
+    background-color: #007bff; /* Blue background for button */
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for button */
+}
+
+/* Button hover effect */
+.compare-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+/* Button active effect */
+.compare-button:active {
+    background-color: #004494; /* Even darker blue when pressed */
+    transform: translateY(0); /* Reset lift effect */
+}
