@@ -4,6 +4,8 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from bs4 import BeautifulSoup
+import re
 import time
 import requests
 from datetime import datetime, timedelta
@@ -26,7 +28,6 @@ def get_all_snapshots(url, start_date, end_date, limit=100000):
     current_start = start_date
     while current_start <= end_date:
         api_url = f"http://web.archive.org/cdx/search/cdx?url={url}&from={current_start}&to={end_date}&output=json&limit={limit}"
-        print(api_url)
         for i in range(5): #max tries are 5
             try:
                 response = requests.get(api_url)
@@ -44,19 +45,11 @@ def get_all_snapshots(url, start_date, end_date, limit=100000):
 
                     all_snapshots.append(filter_snapshots_by_month(snapshots))
                     break
-                    
-                elif response.status_code == 403:
-                    print("Miss ",current_start)
-                    current_start = add_month(end_date)
-                    break
+            
                 else:
-                    print("Failed to fetch data", response.status_code, current_start)
+                    print("Failed to fetch data", response.status_code)
                     continue
-
-            except Exception as e:
-                print("Failed to fetch dataaaa ", response.status_code, current_start, end_date, e)
-                time.sleep(5)
-
+            except:
                 continue
         current_start = add_month(current_start)
 
@@ -110,12 +103,11 @@ def download_past_versions(website,driver ,max_retries = 5):
             wayback_timestamp = snapshot[1]
             # print(f"Downloading snapshot: {wayback_url}")
 
-            mount_path = website
-            if (not os.path.exists(mount_path)):
-                os.makedirs(mount_path, exist_ok=True)
+            if (not os.path.exists(website)):
+                os.makedirs(website, exist_ok=True)
 
             filename = f"{wayback_timestamp}.html"
-            filepath = os.path.join(mount_path,filename)
+            filepath = os.path.join(website,filename)
         
             for attempt in range(max_retries):
                 # print(f"Attempt {attempt + 1}: Getting snapshot for {wayback_timestamp}")
@@ -188,6 +180,6 @@ def crawlWayback(urls, progress_file):
     driver.quit()
     return progress_df
 
-urls = pd.read_csv('tranco_10k_2.csv')['website'].to_list()
+urls = pd.read_csv('tranco_top_10k.csv')['website'].to_list()
 progress_file = "progress.csv"
 crawlWayback(urls,progress_file)
